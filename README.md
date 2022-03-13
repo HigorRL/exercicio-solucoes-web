@@ -1,3 +1,2 @@
 # exercicio-solucoes-web
-Primeiro exercício da disciplina de Soluções WEB.
-Início da criação de um chat.
+Primeiro exercício da disciplina de Soluções WEB, início da criação de um chat.
