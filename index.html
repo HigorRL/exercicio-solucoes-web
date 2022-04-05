@@ -33,10 +33,44 @@
         </section>
 
         <footer>
-            <input type="text" id="msg" placeholder="Digite uma mensagem...">
-            <input type="button" id="button" value="ENVIAR">
+            <form id="formAdd" action="">
+                <input type="text" id="msg" placeholder="Digite uma mensagem...">
+                <input type="submit" id="button" value="ENVIAR">
+            </form>
         </footer>
     </div>
+
+    <script type="text/javascript">
+        function enviaMsg(msg){
+            const nMsg = document.createElement("msg");
+
+            const nChat = document.createElement("chat");
+            nChat.innerText = msg;
+            nMsg.appendChild(nChat);
+
+            const chatInterno = document.querySelector("#chat_interno");
+            chatInterno.appendChild(nMsg);
+
+            const empty = document.querySelector("#atend");
+            empty.style.display = "none";
+        }
+
+        const formAdd = document.getElementById("formAdd");
+        formAdd.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            const msgInput = document.getElementById("msg");
+
+            enviaMsg(msgInput.value);
+
+            msgInput.value = "";
+
+            msgInput.focus();
+
+        });
+        
+
+    </script>
 </body>
 
 </html>
