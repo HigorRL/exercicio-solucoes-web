@@ -41,35 +41,42 @@
     </div>
 
     <script type="text/javascript">
-        function enviaMsg(msg){
-            const nMsg = document.createElement("msg");
+        function enviaMsg(msg) {
+            const nDiv = document.createElement("div");
+            const nMsg = document.createElement("p");
+            const nLabel = document.createElement("label");
+            nLabel.innerText = "Você diz:";
 
-            const nChat = document.createElement("chat");
-            nChat.innerText = msg;
-            nMsg.appendChild(nChat);
+            nMsg.className = "mensagem";
+            nMsg.innerText = msg;
+
+            const chatYou = document.querySelector("#you");
+
+            nDiv.appendChild(document.createElement("br"));
+            nDiv.appendChild(nLabel);
+            nDiv.appendChild(document.createElement("br"));
+            nDiv.appendChild(nMsg);
+            chatYou.appendChild(nDiv);
 
             const chatInterno = document.querySelector("#chat_interno");
-            chatInterno.appendChild(nMsg);
-
-            const empty = document.querySelector("#atend");
-            empty.style.display = "none";
+            chatInterno.scrollTop = chatInterno.scrollHeight;
         }
 
         const formAdd = document.getElementById("formAdd");
-        formAdd.addEventListener("submit", function(event){
+        formAdd.addEventListener("submit", function (event) {
             event.preventDefault();
 
             const msgInput = document.getElementById("msg");
 
-            enviaMsg(msgInput.value);
+            if (msgInput.value) {
+                enviaMsg(msgInput.value);
+            }
 
             msgInput.value = "";
 
             msgInput.focus();
 
         });
-        
-
     </script>
 </body>
 

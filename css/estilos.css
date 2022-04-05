@@ -23,7 +23,8 @@ h3 {
 #chat_interno {
     margin: 9px;
     width: 280px;
-    height: 340px;
+    max-height: 340px;
+    overflow: auto;
     border: 1px solid black;
     text-align: center;
 }
